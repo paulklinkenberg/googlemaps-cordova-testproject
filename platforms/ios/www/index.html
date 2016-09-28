@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>Hello World</title>
+	</head>
+    <body>
+		<button type="button" id="button" style="font-size: 24px; margin-top:100px;">show map</button>
+
+        <script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript">
+			var map;
+			document.addEventListener('deviceready', function() {
+			  // create a map instance
+			  map = plugin.google.maps.Map.getMap();
+			  // Waiting for the MAP_READY event
+			  map.addEventListener(plugin.google.maps.event.MAP_READY, onMapInit);
+			}, false);
+
+			function onMapInit(map) {
+				// Show the map dialog when the button is clicked.
+				var button = document.getElementById("button");
+				button.addEventListener("click", function () {
+					map.showDialog();
+				}, false);
+			}
+		</script>
+	</body>
+</html>
